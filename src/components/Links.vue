@@ -2,16 +2,29 @@
   <div class="hello">
     <h3>{{ header }}</h3>
     <div class="form">
-      <div class="form-group">
-        <label>Link Address: </label>
-        <input class="form-control" type="text" v-model="link.url">
+    <div class="form-group">
+        <div class="form-group">
+          <label>Link Address: </label>
+          <input class="form-control" type="text" v-model="address.url">
+        </div>
+        <div class="form-group">
+          <label>Tags: </label>
+          <input class="form-control" type="text" v-model:="address.tags">
+        </div>
       </div>
-      <div class="form-group">
-        <label>Tags: </label>
-        <input class="form-control" type="text" v-model:="link.tags">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+    <div class="col-sm-12">
+      <div class="col-sm-4 link" v-for="(link, index) in links" :key="index">
+        <div class="card">
+          <div class="card-block">
+<!--            <img :src="link.image" alt="link-image">-->
+            <h4 class="card-title">{{ link.title }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ link.description }}</h6>
+          </div>
+        </div>
       </div>
     </div>
-    <button class="btn btn-primary">Submit</button>
   </div>
 </template>
 
@@ -27,8 +40,10 @@ export default {
         image: '',
         url: '',
         tags: [],
+      },
         links: [
           {
+            index: 0,
             title: 'align-self | CSS-Tricks',
             description: 'The align-self property is a sub-property of the Flexible Box Layout module.',
             image: 'https://css-tricks.com/wp-json/social-image-generator/v1/image/21208',
@@ -36,6 +51,7 @@ export default {
             tags: []
           },
           {
+            index: 1,
             title: 'Bootstrap 4 Tabs - examples &amp; tutorial. Basic &amp; advanced usage - Material Design for Bootstrap',
             description: 'Bootstrap tabs are components which separate content placed in the same wrapper but in the separate pane. Only one pane can be displayed at the time.',
             image: 'https://mdbcdn.b-cdn.net/wp-content/uploads/2016/05/tabs-fb.jpg',
@@ -43,6 +59,7 @@ export default {
             tags: []
           },
           {
+            index: 2,
             title: 'Randall Degges - How to Have Fun Programming',
             description: 'Having fun programming is something that a lot of programmers forget how to do -- and that makes me sad. Check this shit out.',
             image: 'https://www.rdegges.com/static/images/favicons/apple-icon-180x180.png',
@@ -50,6 +67,7 @@ export default {
             tags: []
           },
           {
+            index: 3,
             title: '21 Best Healthy Cooking Hacks of All Time | Eat This Not That',
             description: 'If you’re looking to make your cooking healthier and convenient, there are a few healthy cooking hacks you can keep in mind for future culinary adventures.',
             image: 'https://www.eatthis.com/wp-content/uploads/sites/4/2020/08/cooking-shrimp.jpg?fit=1200%2C879&ssl=1',
@@ -57,6 +75,7 @@ export default {
             tags: []
           },
           {
+            index: 4,
             title: 'Journey — Learn WebGL with Three.js',
             description: 'The ultimate Three.js course whether you are a beginner or a more advanced developer',
             image: 'https://threejs-journey.com/assets/social/open-graph-image-1200x630.png',
@@ -64,7 +83,6 @@ export default {
             tags: []
           }
         ]
-      }
     }
   }
 }
