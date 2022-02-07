@@ -1,24 +1,24 @@
 <template>
   <div class="hello">
     <h3>{{ header }}</h3>
-    <div class="form">
+    <div class="form mb-3">
     <div class="form-group">
         <div class="form-group">
           <label>Link Address: </label>
-          <input class="form-control" type="text" v-model="address.url">
+          <input class="form-control" type="text" v-model="link.url">
         </div>
         <div class="form-group">
           <label>Tags: </label>
-          <input class="form-control" type="text" v-model:="address.tags">
+          <input class="form-control" type="text" v-model:="link.tags">
         </div>
       </div>
       <button class="btn btn-primary">Submit</button>
     </div>
     <div class="col-sm-12">
       <div class="col-sm-4 link" v-for="(link, index) in links" :key="index">
-        <div class="card">
+        <div class="card mb-2">
           <div class="card-block">
-<!--            <img :src="link.image" alt="link-image">-->
+            <img :src="link.image" alt="link-image" style="width:100%">
             <h4 class="card-title">{{ link.title }}</h4>
             <h6 class="card-subtitle mb-2 text-muted">{{ link.description }}</h6>
           </div>
