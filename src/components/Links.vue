@@ -14,13 +14,14 @@
       </div>
       <button class="btn btn-primary">Submit</button>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-12 row">
       <div class="col-sm-4 link" v-for="(link, index) in links" :key="index">
         <div class="card mb-2">
           <div class="card-block">
             <img :src="link.image" alt="link-image" style="width:100%">
             <h4 class="card-title">{{ link.title }}</h4>
             <h6 class="card-subtitle mb-2 text-muted">{{ link.description }}</h6>
+            <p>Tags: </p>
           </div>
         </div>
       </div>
@@ -33,7 +34,7 @@ export default {
   name: 'Links',
   data() {
     return {
-      header: 'Links',
+      header: 'Link Saver',
       link: {
         title: '',
         description: '',
@@ -52,7 +53,7 @@ export default {
           },
           {
             index: 1,
-            title: 'Bootstrap 4 Tabs - examples &amp; tutorial. Basic &amp; advanced usage - Material Design for Bootstrap',
+            title: 'Bootstrap 4 Tabs - examples & tutorial. Basic & advanced usage - Material Design for Bootstrap',
             description: 'Bootstrap tabs are components which separate content placed in the same wrapper but in the separate pane. Only one pane can be displayed at the time.',
             image: 'https://mdbcdn.b-cdn.net/wp-content/uploads/2016/05/tabs-fb.jpg',
             url: 'https://mdbootstrap.com/docs/b4/jquery/components/tabs/',
@@ -106,5 +107,17 @@ li {
 }
 a {
   color: #42b983;
+}
+.form {
+  text-align: left;
+}
+
+.card {
+  text-align: left;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 </style>
