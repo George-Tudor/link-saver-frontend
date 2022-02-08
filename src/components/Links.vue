@@ -30,6 +30,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Links',
   data() {
@@ -88,11 +89,16 @@ export default {
   },
   methods: {
     addLink() {
-      let { url, tags }= this.link;
-      this.links.push({
-        url,
-        tags
-      })
+      // let { url } = this.url;
+      // this.links.push({
+      //   url
+      // })
+    },
+    getLinkInfo() {
+      // eslint-disable-next-line no-undef
+      fetch('http://api.linkpreview.net/?key=' + api_key + '&q=www.nba.com')
+          .then(response => response.json())
+          .then(data => console.log(data))
     }
   }
 }
