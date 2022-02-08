@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <h3>{{ header }}</h3>
     <div class="form mb-3">
     <div class="form-group">
@@ -12,7 +12,7 @@
           <input class="form-control" type="text" v-model:="link.tags">
         </div>
       </div>
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary" @click="addLink">Submit</button>
     </div>
     <div class="col-sm-12 row">
       <div class="col-sm-4 link" v-for="(link, index) in links" :key="index">
@@ -84,6 +84,15 @@ export default {
             tags: []
           }
         ]
+    }
+  },
+  methods: {
+    addLink() {
+      let { url, tags }= this.link;
+      this.links.push({
+        url,
+        tags
+      })
     }
   }
 }
